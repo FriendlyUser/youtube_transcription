@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from youtube_transcripter.forms import YoutubeForm
 from youtube_transcript_api import YouTubeTranscriptApi
-
+from urllib.parse import urlparse, parse_qs
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
@@ -27,12 +27,17 @@ def get_form(request):
             # redirect to a new URL:
             if request.POST['video_link']:
                 # grab video transcript
-                video_id = request.POST['video_link']
+                video_param = request.POST['video_link']
+                parsed_url = urlparse(video_param)
+                if parsed_url.query is "":
+                  video_id = video_param
+                else:
+                  url_params = parse_qs(parsed_url.query)
+                  video_id = url_params.get('v')[0]
+                  print(video_id)
                 transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
                 transcript = transcript_list.find_transcript(['en-US', 'en'])
                 full_transcript = transcript.fetch()
-                print('PRINTING transcript')
-                print(full_transcript)
                 return render(request, 'transcript.html', {'transcript_items': full_transcript}) 
                 # return template with transcript and copiable json object?
             return HttpResponseRedirect('/thanks')
