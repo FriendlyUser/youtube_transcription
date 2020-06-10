@@ -1,0 +1,34 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<div class="skewed"></div>
+
+<div class="container">
+  <h1 class='hero-header'>YTranscript</h1>
+  <p>Get fast youtube transcripts</p>
+</div>
+
+<div class="container">
+  <table class="data-table">
+    <thead>
+      <th>
+        <td>Text</td>
+        <td>Value</td>
+        <td>Date</td>
+      </th>
+    </thead>
+    {% for object in transcript_items %}
+        <tr>
+          <td>
+            {{ object.text }}
+          </td>
+          <td>
+            {{ object.start }}
+          </td>
+          <td>
+            {{ object.duration }}
+          </td>
+        </tr>
+    {% endfor %}
+  </table>
+</div>

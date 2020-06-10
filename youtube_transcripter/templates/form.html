@@ -1,0 +1,18 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<div class="skewed"></div>
+
+<div class="container">
+  <h1 class='hero-header'>YTranscript</h1>
+  <p>Get fast youtube transcripts</p>
+  <img src="{% static "undraw_online_video_ivvq.svg" %}" alt="My image" class='hero-image'>
+</div>
+
+<div class="container">
+<form action="/" method="post" class='my-form'>
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit" value="Submit" class='submit-button'>Submit </button>
+</form>
+</div>

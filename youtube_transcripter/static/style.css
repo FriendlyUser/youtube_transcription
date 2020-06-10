@@ -1,0 +1,74 @@
+.skewed {
+  color: #434c5e;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  background: #81a1c1;
+  z-index: 0;
+  transform: skewY(5deg);
+  transform-origin: top right;
+}
+
+body {
+  background-color: #d8dee9;
+  color: #434c5e;
+  transition: background-color .3s ease;
+}
+
+.hero-header {
+  font-size: 3rem;
+}
+.hero-image {
+  width: 100%;
+  height: 250px;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  margin-right: auto; /* 1 */
+  margin-left:  auto; /* 1 */
+
+  max-width: 960px; /* 2 */
+
+  padding-right: 10px; /* 3 */
+  padding-left:  10px; /* 3 */
+}
+
+.my-form input[type="text"] {
+  flex: 1 1;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 1rem 1rem 1rem 1rem;
+  border: none;
+  background-color: #eceff4;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.my-form label {
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding-right: 15px;
+}
+
+.submit-button {
+  background-color: #81a1c1; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 50px;
+}
+
+.data-table {
+  padding-top: 100px;
+}
+tr:nth-child(even) {background-color: #81a1c1;}
