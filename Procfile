@@ -1,1 +1,1 @@
-web: gunicorn youtube_transcripter/wsgi.py
+web: gunicorn youtube_transcripter/wsgi:application
